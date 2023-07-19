@@ -1,0 +1,805 @@
+﻿@model MVCTelent.Models.Customer
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+
+<!-- Mirrored from themesdesign.in/joobsy/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 May 2023 08:09:33 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Telnet</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Themesdesign" />
+
+    <link rel="shortcut icon" href="~/img/favicon.ico">
+
+    <!-- google font -->
+    <link href="~/https://fonts.googleapis.com/css?family=Roboto:400,500,700|Rubik:400,500" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" type="text/css">
+
+    <!--Material Icon -->
+
+    <link rel="stylesheet" type="text/css" href="~/css/materialdesignicons.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/AjaxLoader.html" />
+    <link rel="stylesheet" type="text/css" href="~/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/fontawesome.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/owl.carousel.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/owl.theme.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/owl.transitions.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/selectize.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/style2.css" />
+
+    <link rel="stylesheet" type="text/css" href="~/css/fontawesome.css" />
+
+    <!-- selectize css -->
+    <link rel="stylesheet" type="text/css" href="~/css/selectize.css" />
+
+    <!--Slider-->
+    <link rel="stylesheet" href="~/css/owl.carousel.css" />
+    <link rel="stylesheet" href="~/css/owl.theme.css" />
+    <link rel="stylesheet" href="~/css/owl.transitions.css" />
+
+    <!-- Custom  Css -->
+    <link rel="stylesheet" type="text/css" href="~/css/style.css" />
+    <script src="~/https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav" class="defaultscroll scroll-active">
+        <div class="tagline">
+            <div class="container">
+                <div class="float-left">
+                    <div class="phone">
+                        <i class="mdi mdi-phone-classic"></i> +91 99252 33622
+                    </div>
+                    @* <div class="email">
+                    @if (ViewBag.CustomerEmail != null)
+                    {
+                    <a href="#">
+                    <i class="mdi mdi-email"></i> @ViewBag.CustomerEmail
+                    </a>
+                    }
+                    else
+                    {
+                    <a href="#">
+                    <i class="mdi mdi-email"></i> No email available
+                    </a>
+                    }
+                    </div>*@
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="container">
+            <!-- Logo container-->
+            <div>
+                <a href="index.html" class="logo">
+                    <img src="~/img/favicon.png" alt="" class="logo-light" height="28" />
+                    <img src="~/img/favicon.png" alt="" class="logo-dark" height="28" />
+                </a>
+            </div>
+            <!-- End Logo container-->
+            <div class="menu-extras">
+
+                <div class="menu-item">
+                    <!-- Mobile menu toggle-->
+                    <a class="navbar-toggle">
+                        <div class="lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </a>
+                    <!-- End mobile menu toggle-->
+                </div>
+            </div>
+
+            <div id="navigation">
+
+
+                <!-- Navigation Bar-->
+                <header id="topnav" class="defaultscroll scroll-active">
+                    <div class="tagline">
+                        <div class="container">
+                            <div class="float-left">
+                                <div class="phone">
+                                    <i class="mdi mdi-phone-classic"></i> +91 99252 33622
+                                </div>
+                                @if (ViewBag.CustomerEmail != null || ViewBag.UserEmail != null)
+                                {
+                                    <div class="email">
+                                        <a href="#">
+                                            <i class="mdi mdi-email"></i> @(ViewBag.CustomerEmail ?? ViewBag.UserEmail)
+                                        </a>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="email">
+                                        <a href="#">
+                                            <i class="mdi mdi-email"></i> No email available
+                                        </a>
+                                    </div>
+                                }
+
+
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <!-- Logo container-->
+                        <div>
+                            <a href="index.html" class="logo">
+                                <img src="~/img/favicon.png" alt="" class="logo-light" height="28" />
+                                <img src="~/img/favicon.png" alt="" class="logo-dark" height="28" />
+                            </a>
+                        </div>
+                        <!-- End Logo container-->
+                        <div class="menu-extras">
+
+                            <div class="menu-item">
+                                <!-- Mobile menu toggle-->
+                                <a class="navbar-toggle">
+                                    <div class="lines">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </a>
+                                <!-- End mobile menu toggle-->
+                            </div>
+                        </div>
+
+                        <div id="navigation">
+
+                            <!-- Navigation Menu-->
+                            <ul class="navigation-menu">
+
+                                <li class="has-submenu">
+                                    <a asp-controller="UserHome" asp-action="Index">Home</a>
+                                </li>
+
+                                @if (string.IsNullOrEmpty(ViewBag.CustomerEmail) && string.IsNullOrEmpty(ViewBag.UserEmail))
+                                {
+                                    <li>
+                                        <a href="#">Jobs</a>
+                                    </li>
+                                }
+                                @if (!string.IsNullOrEmpty(ViewBag.UserEmail))
+                                {
+                                    <li class="has-submenu">
+                                        <a href="#">Find Jobs</a>
+                                        <span class="menu-arrow"></span>
+                                        <ul class="submenu">
+                                            <li>
+                                                <a href="/UserActivity/JobList">Job List</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                }
+                                @if (!string.IsNullOrEmpty(ViewBag.CustomerEmail))
+                                {
+                                    <li class="has-submenu">
+                                        <a href="#">Post Job</a>
+                                        <span class="menu-arrow"></span>
+                                        <ul class="submenu">
+                                            <li>
+                                                <a href="/CustomerActivity/PostJob">Post Job</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                }
+                                @if (!string.IsNullOrEmpty(ViewBag.CustomerEmail) || !string.IsNullOrEmpty(ViewBag.UserEmail))
+                                {
+                                    @if (!string.IsNullOrEmpty(ViewBag.CustomerEmail))
+                                    {
+                                        <li class="has-submenu">
+                                            <a href="#">Candidates</a>
+                                            <span class="menu-arrow"></span>
+                                            <ul class="submenu">
+                                                <li>
+                                                    <a href="/CustomerActivity/CandidatesList">Candidates Listing</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/CustomerActivity/Applicants"> Applicants</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    }
+                                    @if (!string.IsNullOrEmpty(ViewBag.UserEmail))
+                                    {
+                                        <li class="has-submenu">
+                                            <a href="#">Company</a>
+                                            <span class="menu-arrow"></span>
+                                            <ul class="submenu">
+                                                <li>
+                                                    <a href="/UserActivity/CompaniesList">Companies</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    }
+                                }
+                                else
+                                {
+                                    <li class="has-submenu">
+                                        <a href="#">Candidates</a>
+                                        <span class="menu-arrow"></span>
+                                        <ul class="submenu">
+                                            <li>
+                                                <a href="/CustomerActivity/CandidatesList">Candidates Listing</a>
+                                            </li>
+                                            <li>
+                                                <a href="/CustomerActivity/Applicants"> Applicants</a>
+                                            </li>
+                                           
+                                        </ul>
+                                    </li>
+                                    <li class="has-submenu">
+                                        <a href="#">Company</a>
+                                        <span class="menu-arrow"></span>
+                                        <ul class="submenu">
+                                            <li>
+                                                <a href="employers-list.html">Employers List</a>
+                                            </li>
+                                            <li>
+                                                <a href="company-detail.html">Company Detail</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                }
+
+
+                                <li class="has-submenu">
+                                    <a href="#">Blog</a>
+                                    <span class="menu-arrow"></span>
+                                    <ul class="submenu">
+                                        <li>
+                                            <a asp-controller="UserActivity" asp-action="BlogList">Blogs</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                @*   <li class="has-submenu">
+                                <a href="#">Pages</a>
+                                <span class="menu-arrow"></span>
+                                <ul class="submenu">
+                                <li>
+                                <a href="about.html">About us</a>
+                                </li>
+                                <li>
+                                <a href="services.html">Services</a>
+                                </li>
+                                <li>
+                                <a href="team.html">Team</a>
+                                </li>
+                                <li>
+                                <a href="faq.html">Faqs</a>
+                                </li>
+                                <li>
+                                <a href="pricing.html">Pricing plans</a>
+                                </li>
+                                <li>
+                                <a href="#ModalCenter" class="nav-link" data-toggle="modal" data-target="#ModalCenter">Log in</a>
+                                </li>
+                                <li>
+                                <a href="#ModalCenter1" class="nav-link" data-toggle="modal" data-target="#ModalCenter1">Register</a>
+                                </li>
+                                </ul>
+                                </li>*@
+                                @if (!string.IsNullOrEmpty(ViewBag.CustomerEmail) || !string.IsNullOrEmpty(ViewBag.UserEmail))
+                                {
+                                    @if (!string.IsNullOrEmpty(ViewBag.CustomerEmail))
+                                    {
+                                        <li class="has-submenu">
+                                            <a href="#">Profile</a>
+                                            <span class="menu-arrow"></span>
+                                            <ul class="submenu">
+                                                <li>
+                                                    <a href="/UserHome/Profile">Profile</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/UserHome/CreateProfileGeneralGet">Create Profile</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    }
+                                    @if (!string.IsNullOrEmpty(ViewBag.UserEmail))
+                                    {
+                                        <li class="has-submenu">
+                                            <a href="/UserData/UserProfile">Profile</a>
+                                            <span class="menu-arrow"></span>
+                                            <ul class="submenu">
+                                                <li>
+                                                    <a href="/UserData/Profile">Profile</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/UserData/UserProfile">Create Profile</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    }
+                                }
+
+
+                                @if (!string.IsNullOrEmpty(ViewBag.CustomerEmail) || !string.IsNullOrEmpty(ViewBag.UserEmail))
+                                {
+                                    <li class="has-submenu">
+                                        <form method="post" action="@Url.Action("Logout", "UserAuth")" class="nav-link">
+                                            <button type="submit" class="btn btn-custom btn-sm mt-2" style="color:white">
+                                                <i class="mdi mdi-logout"></i> Log out
+                                            </button>
+                                        </form>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="has-submenu">
+                                        <a href="#ModalCenter" class="btn btn-custom btn-sm" data-toggle="modal" data-target="#ModalCenter">
+                                            <i class="mdi mdi-login"></i> Log in
+                                        </a>
+                                    </li>
+                                }
+
+                            </ul>
+                            <!-- End navigation menu-->
+                        </div>
+                    </div>
+                </header>
+                <!-- End Navigation Bar-->
+
+
+            </div>
+        </div>
+    </header>
+
+    <!-- LOG IN FORM START -->
+    <section class="form-bg">
+        <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">LOG IN</h5>
+                        <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="custom-form mt-4">
+                            <form asp-controller="UserAuth" asp-action="login">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group blog-details-form">
+                                            <i class="mdi mdi-account text-muted f-17"></i>
+                                            <input name="email" id="email" asp-for="Email" type="text" class="form-control blog-details f-15 pt-2" placeholder="Email" required="true">
+
+
+
+                                            @if (!string.IsNullOrEmpty(ViewBag.InfoMessage))
+                                            {
+                                                <div class="alert alert-info" role="alert">
+                                                    @ViewBag.InfoMessage
+                                                </div>
+                                            }
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group blog-details-form">
+                                            <i class="mdi mdi-lock text-muted f-17"></i>
+                                            <input name="Password" id="Password" asp-for="Password" type="Password" class="form-control blog-details f-15 pt-2" placeholder="Password" required="true">
+                                        </div>
+                                    </div>
+                                    @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+                                    {
+                                        <div class="alert alert-danger" role="alert">
+                                            @ViewBag.ErrorMessage
+                                        </div>
+                                    }
+                                    <div class="col-lg-12">
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item float-left">
+                                                <p class="mb-0"><a href="#ModalCenter1" class="text-dark" data-toggle="modal" data-target="#ModalCenter1">Don't have an account?</a></p>
+                                            </li>
+                                            <li class="list-inline-item float-right">
+                                                <p class="mb-0"><a href="#" class="text-dark">Lost your password?</a></p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-sm-12 text-right">
+                                        <input type="submit" id="submit2" name="submit" class="btn-block btn btn-custom" style="background-color: red; color: white;" value="Log In">
+                                    </div>
+                                </div>
+                                @if (!ViewData.ModelState.IsValid)
+                                {
+                                    <div class="alert alert-danger" role="alert">
+                                        @Html.ValidationSummary()
+                                    </div>
+                                }
+                            </form>
+                            <!-- /form -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- LOG IN FORM END -->
+    @* <script src="~/https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+    $(document).ready(function () {
+    $('#loginForm').submit(function (event) {
+    event.preventDefault(); // Prevent default form submission
+
+    var form = $(this);
+    var url = form.attr('action');
+    var formData = form.serialize();
+
+    $.ajax({
+    type: 'POST',
+    url: url,
+    data: formData,
+    success: function (response) {
+    // Check if the response contains an error message
+    if (response.errorMessage) {
+    $('#errorMessage').text(response.errorMessage);
+    $('#ModalCenter').modal('show');
+    } else {
+    // Redirect to the appropriate page on successful login
+    window.location.href = response.redirectUrl;
+    }
+    },
+    error: function (xhr, status, error) {
+    console.log(error);
+    }
+    });
+    });
+    });
+    </script>*@
+
+
+
+    <!-- Include necessary CSS and JavaScript files for Bootstrap and jQuery -->
+    <!-- Include necessary CSS and JavaScript files for Bootstrap and jQuery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Add this script block at the end of your view -->
+    <!-- Add this modal block at the end of your view -->
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="successModalLabel">Login Successful</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>You have successfully logged in.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- SING IN FORM START -->
+    <section class="form-bg">
+        <div class="modal fade" id="ModalCenter1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">REGISTRATION</h5>
+                        <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="custom-form mt-1">
+
+                            <form method="post" asp-controller="UserAuth" asp-action="Register" onsubmit="return validateForm()">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="text-center">
+                                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                <label class="btn btn-primary">
+                                                    <input type="radio" name="options" id="option2" value="Candidate" autocomplete="off">
+                                                    Candidate
+                                                </label>
+
+                                                <label class="btn btn-primary">
+                                                    <input type="radio" name="options" id="option3" value="Employer" autocomplete="off"> Employer
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div class="col-lg-12 mt-3">
+                                        <div class="form-group blog-details-form">
+                                            <i class="mdi mdi-email text-muted f-17"></i>
+                                            <input name="email" asp-for="Email" type="text"
+                                                   class="form-control blog-details f-15 pt-2" placeholder="Email"
+                                                   required="true">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group blog-details-form">
+                                            <i class="mdi text-muted f-17 "></i>
+
+                                            <input name="password" asp-for="Password" type="password" class="form-control blog-details f-15 pt-2"
+                                                   placeholder="Password"
+                                                   required="true"
+                                                   pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[A-Z]).{8,}$"
+                                                   title="Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit" class="mdi mdi-eye" />
+
+                                            @*<div class="input-group-append">*@
+                                            <button class="btn btn-outline-secondary" type="button" id="showPasswordBtn" onclick="togglePasswordVisibility()">
+                                                <i class="mdi mdi-eye"></i>
+                                            </button>
+                                            @*</div>*@
+                                        </div>
+                                    </div>
+
+                                    <style>
+                                        .input-group-append {
+                                            margin-left: -40px;
+                                        }
+                                    </style>
+
+
+                                    <div class="col-lg-12">
+                                        <div class="form-group blog-details-form">
+                                            <i class="mdi mdi-lock text-muted f-17"></i>
+                                            <input name="confirmPassword" type="password" class="form-control blog-details f-15 pt-2" placeholder="Confirm Password" required="true">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item">
+                                                <div class="custom-control custom-checkbox pl-0 mb-1 mt-1">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                           id="customCheck2">
+                                                    <label class="custom-control-label ml-1 text-muted f-15"
+                                                           for="customCheck2">Remember Me</label>
+                                                </div>
+                                            </li>
+                                            <li class="list-inline-item float-right">
+                                                <p class="mb-0">
+                                                    <a href="#ModalCenter" data-toggle="modal" data-target="#ModalCenter" class="text-dark">Already have account?</a>
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-sm-12 text-right">
+                                        <input type="submit" value="Submit" style="background-color: red; color: white;" class="btn-block btn btn-custom" />
+                                    </div>
+                                </div>
+
+                                <div class="job-single-or mt-4 mb-4 position-relative">
+                                    <h5 class="mb-0 text-dark text-center">OR</h5>
+                                </div>
+                                <ul class="list-inline text-center">
+                                    <li class="list-inline-item mr-1">
+                                        <a href="#" class="text-white">
+                                            <div class="sing-form-icon bg-primary rounded">
+                                                <h6 class="mb-0"><i class="mdi mdi-facebook mr-1"></i>Facebook</h6>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="list-inline-item mr-1">
+                                        <a href="#" class="text-white">
+                                            <div class="sing-form-icon bg-info rounded">
+                                                <h6 class="mb-0"><i class="mdi mdi-twitter mr-1"></i>Twitter</h6>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="list-inline-item mr-1">
+                                        <a href="#" class="text-white">
+                                            <div class="sing-form-icon bg-danger rounded">
+                                                <h6 class="mb-0"><i class="mdi mdi-google-plus mr-1"></i>Google</h6>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </form>
+                            <!-- /form -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SING IN FORM END -->
+    <!-- End Navigation Bar-->
+    @RenderBody()
+
+    <!-- footer start -->
+    <footer class="footer pt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="text-dark">
+                        <h3 class="mb-4 footer-list-title text-white f-17">Joobsy</h3>
+                        <p class="footer-desc">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium</p>
+                        <ul class="footer-icons list-inline mb-4">
+                            <li class="list-inline-item"><a href="#" class=""><i class="mdi mdi-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="#" class=""><i class="mdi mdi-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="#" class=""><i class="mdi mdi-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="#" class=""><i class="mdi mdi-google"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div>
+                                <p class="text-white mb-4 footer-list-title f-17">Company</p>
+                                <ul class="list-unstyled footer-list-menu">
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Media & Press</a></li>
+                                    <li><a href="#">Career</a></li>
+                                    <li><a href="#">Blog</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div>
+                                <p class="text-white mb-4 footer-list-title f-17">Resources</p>
+                                <ul class="list-unstyled footer-list-menu">
+                                    <li><a href="#">Help & Support</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="#">Terms & Conditions</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div>
+                                <p class="text-white mb-4 footer-list-title f-17">More Info</p>
+                                <ul class="list-unstyled footer-list-menu">
+                                    <li><a href="#">Pricing</a></li>
+                                    <li><a href="#">For Marketing</a></li>
+                                    <li><a href="#">For CEOs </a></li>
+                                    <li><a href="#">For Agencies</a></li>
+                                    <li><a href="#">Our Apps</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div>
+                                <p class="text-white mb-4 footer-list-title f-17">Help center</p>
+                                <ul class="list-unstyled footer-list-menu">
+                                    <li><a href="#">Accounting </a></li>
+                                    <li><a href="#">Billing</a></li>
+                                    <li><a href="#">General Question</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer end -->
+    <!-- footer-alt start -->
+    <section class="footer-alt pt-3 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p class="copyright mb-0">2019 © Joobsy. Design By Themesdesign</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- footer-alt end -->
+    <!-- javascript -->
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/jquery.easing.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+
+    <!-- selectize js -->
+    <script src="~/js/selectize.min.js"></script>
+    <script src="~/js/jquery.nice-select.min.js"></script>
+
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/counter.int.js"></script>
+
+    <script src="~/js/app.js"></script>
+    <script src="~/js/home.js"></script>
+
+</body>
+
+<!-- Mirrored from themesdesign.in/joobsy/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 May 2023 08:09:38 GMT -->
+</html>
+<script>
+    $(document).ready(function () {
+        $('a[data-target="#ModalCenter"]').on('click', function () {
+            $('#ModalCenter1').modal('hide');
+            $('b ody').removeClass('modal-open');
+            $('.modal-backdrop').remove();
+        });
+        $('a[data-target="#ModalCenter1"]').on('click', function () {
+            $('#ModalCenter').modal('hide');
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        // Check if the success modal should be shown
+        var showSuccessModal = '@TempData["ShowSuccessModal"]';
+        if (showSuccessModal === "True") {
+            // Show the success modal
+            $('#successModal').modal('show');
+        }
+    });
+</script>
+<script>
+    // Function to validate the form before submission
+    function validateForm() {
+        var password = document.getElementsByName("password")[0].value;
+        var confirmPassword = document.getElementsByName("confirmPassword")[0].value;
+        var userType = document.querySelector('input[name="options"]:checked');
+
+        if (password !== confirmPassword) {
+            alert("Passwords do not match!");
+            return false;
+        }
+        if (!userType) {
+            alert("Please select a user type (Candidate or Employer)!");
+            return false;
+        }
+
+        return true;
+    }
+</script>
+<script>
+    // Function to toggle password visibility
+    function togglePasswordVisibility() {
+        var passwordInput = document.getElementsByName("password")[0];
+        var showPasswordBtn = document.getElementById("showPasswordBtn");
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            showPasswordBtn.innerHTML = "<i class='mdi mdi-eye-off'></i>";
+        } else {
+            passwordInput.type = "password";
+            showPasswordBtn.innerHTML = "<i class='mdi mdi-eye'></i>";
+        }
+    }
+</script>
+<!-- JavaScript/jQuery code to open the modal when the link is clicked -->
+<script>
+    $(document).ready(function () {
+        $("#loginLink").click(function (e) {
+            e.preventDefault(); // Prevent the default link behavior
+            $("#ModalCenter").modal("show"); // Open the modal
+        });
+    });
+</script>

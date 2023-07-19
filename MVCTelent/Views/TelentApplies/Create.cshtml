@@ -1,0 +1,57 @@
+﻿@model MVCTelent.Models.TelentApply
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<div class="card">
+    <div class="card-body mt-3">
+<h1>Create</h1>
+
+<h4>TelentApply</h4>
+<hr />
+        <div class="card">
+            <div class="card-body mt-3">
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TelentReqId" class="control-label"></label>
+                <select asp-for="TelentReqId" class ="form-control" asp-items="ViewBag.TelentReqId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <select asp-for="CategoryId" class ="form-control" asp-items="ViewBag.CategoryId"></select>
+            </div>
+           
+            <div class="form-group">
+                <select asp-for="Status" class="control-label">
+                    <option value="true">Active</option>
+                    <option value="false">InActive</option>
+                </select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Message" class="control-label"></label>
+                <input asp-for="Message" class="form-control" />
+                <span asp-validation-for="Message" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary mt-1" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+                    <a asp-action="Index" class="btn btn-outline-dark mt-1">Back</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

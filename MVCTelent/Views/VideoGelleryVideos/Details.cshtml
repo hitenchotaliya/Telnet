@@ -1,0 +1,45 @@
+﻿@model MVCTelent.Models.VideoGelleryVideo
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<div class="card">
+    <div class="card-body mt-3">
+<h1>Details</h1>
+        <div class="card">
+            <div class="card-body mt-3">
+<div>
+    <h4>VideoGelleryVideo</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VideoLink)
+        </dt>
+        <dd class = "col-sm-10">
+            <video width="320" height="240" controls alt="Your Video">
+                <source src="~/UserVideo/@Model.VideoLink" type="video/mp4">
+            </video>
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VideoGellery)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VideoGellery.GelleryName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.VideoGelleryVideoId" class="btn btn-primary mt-1">Edit</a>
+    <a asp-action="Index" class="btn btn-outline-dark mt-1">Back</a>
+</div>
+</div>
+</div>
+</div>
+</div>

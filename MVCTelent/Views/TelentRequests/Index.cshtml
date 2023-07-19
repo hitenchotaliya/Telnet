@@ -1,0 +1,111 @@
+﻿@using ContosoUniversity;
+@using MVCTelent.Models;
+@model PaginatedList<MVCTelent.Models.TelentRequest>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<div class="card">
+    <div class="card-body mt-3">
+<h1>Index</h1>
+        <div class="search-bar">
+            <form class="search-form d-flex align-items-center" asp-controller="TelentRequests" asp-action="Index" method="get">
+                <p>
+                    <input type="text" name="searchString" placeholder="Search" value="@ViewData["CurrentFilter"]" />
+                    <button type="submit" value="Filter" class="bi bi-search"></button>
+                    <button class="bi bi-x-lg m-lg-1" asp-controller="TelentRequests" asp-action="Index"></button>
+                </p>
+            </form>
+        </div>
+
+        <div class="card">
+            <div class="card-body mt-3">
+        <p>
+            <a asp-action="Create" class="btn btn-outline-primary">Create New</a>
+</p>
+       
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                                FromDate
+                            </th>
+            <th>
+                                ToDate
+                            </th>
+            <th>
+                                NoOfPerson
+                            </th>
+           @* <th>
+                                Address
+                            </th>*@
+            <th>
+                                Category
+                            </th>
+            <th>
+                                Customer
+                            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FromDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ToDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoOfPerson)
+            </td>
+           @* <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>*@           
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.CatName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.Email)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TelentReqId"class="btn btn-outline-primary">Edit</a> 
+                <a asp-action="Details" asp-route-id="@item.TelentReqId"class="btn btn-outline-warning">Details</a> 
+                <a asp-action="Delete" asp-route-id="@item.TelentReqId"class="btn btn-outline-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.min.js"></script>
+<script src="js/datatables/datatables.js"></script>

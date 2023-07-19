@@ -1,0 +1,124 @@
+﻿@model MVCTelent.Models.User
+
+@{
+    ViewData["Title"] = "Create Profile";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+<section class="create-resume-bg">
+    <div class="bg-overlay"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="page-header-title text-center text-white">
+                    <h1 class="">Create Profile</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- CREATE RESUME START -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="text-dark">General Information</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="job-detail mt-2 p-4">
+                  
+
+                    <div class="custom-form">
+                        @{
+                            var userId = Context.Session.GetInt32("UserId");
+                        }
+
+                        <form method="post" enctype="multipart/form-data" asp-controller="UserData" asp-action="GeneralPost" asp-route-id="@userId">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="resume-user mb-5">
+                                        <i class="mdi mdi-account text-black">
+                                            <input asp-for="Img" name="photo" type="file" class="form-control" style="font-size:small" />
+                                        </i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group app-label">
+                                        <label for="frist-name" class="text-muted">First Name</label>
+                                        <input asp-for="Fname" id="frist-name" type="text" class="form-control resume" placeholder="" >
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6">
+                                    <div class="form-group app-label">
+                                        <label for="surname-name" class="text-muted">Last Name</label>
+                                        <input asp-for="Lname" id="surname-name" type="text" class="form-control resume" placeholder="">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group app-label">
+                                        <label for="date-of-birth" class="text-muted">Date Of Birth</label>
+                                        <input type="date" class="form-control" id="Dob" name="Dob" >
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group app-label">
+                                        <label for="Gender" class="text-muted">Gender</label>
+                                        <div class="form-button">
+                                            <select asp-for="Gender" class="nice-select">
+                                                <option data-display="Gender">Gender</option>
+                                                <option value="male">Male</option>
+                                                <option value="female">Female</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group app-label">
+                                        <label for="Category" class="text-muted">Category</label>
+                                        <div class="form-button">
+                                            <select asp-for="CategoryId" class="nice-select">
+                                                <option value="">Select a category</option>
+                                                @foreach (var category in ViewBag.Categories as List<Category>)
+                                                {
+                                                    <option value="@category.CategoryId">@category.CatName</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-12 text-center">
+                                    <div class="form-group">
+                                        <button type="submit" class="submitBnt btn btn-custom mt-5" style="background-color: red; color: white;">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       
+
+        @*<div class="row">
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <input type="submit" id="submit" name="send" class="submitBnt btn btn-custom mt-5" style="background-color: red; color: white;" value="Submit Resume">
+                </div>
+            </div>
+        </div>*@
+    </div>
+</section>
+<!-- CREATE RESUME END -->

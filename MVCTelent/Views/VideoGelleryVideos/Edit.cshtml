@@ -1,0 +1,57 @@
+﻿@model MVCTelent.Models.VideoGelleryVideo
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<div class="card">
+    <div class="card-body mt-3">
+<h1>Edit</h1>
+
+<h4>VideoGelleryVideo</h4>
+<hr />
+        <div class="card">
+            <div class="card-body mt-3">
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="VideoGelleryVideoId" />
+            <div class="form-group">
+                <label asp-for="VideoGelleryId" class="control-label"></label>
+
+                <select asp-for="VideoGelleryId" class="form-control" asp-items="ViewBag.VideoGelleryId"></select>
+                <span asp-validation-for="VideoGelleryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <video width="320" height="240" controls alt="Your Video">
+                    <source src="~/UserVideo/@Model.VideoLink" type="video/mp4">
+                </video>
+                <br />
+                <label asp-for="VideoLink" class="control-label">Video</label>
+                <input name="video" type="file" class="form-control" />
+                <span asp-validation-for="VideoLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary mt-1" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+                    <a asp-action="Index" class="btn btn-outline-dark mt-1">Back</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

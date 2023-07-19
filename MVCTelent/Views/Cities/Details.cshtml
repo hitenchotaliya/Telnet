@@ -1,0 +1,38 @@
+﻿@model MVCTelent.Models.City
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+   
+}
+<div class="card">
+    <div class="card-body mt-3">
+<h1>Details</h1>
+        <div class="card">
+            <div class="card-body mt-3">
+<div>
+    <h4>City</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SidNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SidNavigation.Sid)
+        </dd>
+    </dl>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Cid">Edit</a> |
+    <a asp-action="Index" class="btn btn-outline-dark mt-1">Back</a>
+</div>

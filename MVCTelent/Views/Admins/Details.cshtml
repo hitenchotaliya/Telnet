@@ -1,0 +1,56 @@
+﻿@model MVCTelent.Models.Admin
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Details</h1>
+<div class="card">
+    <div class="card-body mt-3">
+<div>
+    <h4>Admin</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-8">
+    <div class="card">
+        <div class="card-body mt-3">
+
+                    <dl class="row table table-hover">
+            <h1>Details</h1>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Uname)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Uname)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Isactive)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Isactive)
+        </dd>
+    </dl>
+
+    </div>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.AdminId"
+       class="btn btn-primary mt-1">Edit</a>
+    <a asp-action="Index" class="btn btn-outline-dark mt-1">Back</a>
+</div>
+</div>
+</div>
+</div>

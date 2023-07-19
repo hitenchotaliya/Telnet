@@ -1,0 +1,115 @@
+﻿@model MVCTelent.Models.User
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<div class="card">
+    <div class="card-body mt-3">
+<h1>Create</h1>
+
+<h4>User</h4>
+<hr />
+        <div class="card">
+            <div class="card-body mt-3">
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Fname" class="control-label"></label>
+                <input asp-for="Fname" class="form-control" required />
+                <span asp-validation-for="Fname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lname" class="control-label"></label>
+                <input asp-for="Lname" class="form-control" required />
+                <span asp-validation-for="Lname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" required />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" required pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[A-Z]).{8,}$"
+                       title="Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="gender-select" class="control-label">Gender</label>
+                <select asp-for="Gender" class="control-label">
+                    <option value="male">Male</option>
+                    <option value="feale">Female</option>
+                    <option value="other">Other</option>
+
+                </select>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" required />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="State" class="control-label"></label>
+                <input asp-for="State" class="form-control" />
+                <span asp-validation-for="State" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactNo" class="control-label"></label>
+                <input asp-for="ContactNo" class="form-control" required />
+                <span asp-validation-for="ContactNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+            </div>
+           @* <div class="form-group">
+                <label asp-for="CreatedDate" class="control-label"></label>
+                <input asp-for="CreatedDate" class="form-control" />
+                <span asp-validation-for="CreatedDate" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="TrialEndDate" class="control-label"></label>
+                <input asp-for="TrialEndDate" class="form-control" />
+                <span asp-validation-for="TrialEndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsPaid" class="control-label"></label>
+                <select asp-for="IsPaid" class="control-label">
+                    <option value="true">Paid</option>
+                    <option value="false">Unpaid</option>
+
+                </select>
+                <span asp-validation-for="IsPaid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaidDate" class="control-label"></label>
+                <input asp-for="PaidDate" class="form-control" />
+                <span asp-validation-for="PaidDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary mt-1" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+                    <a asp-action="Index" class="btn btn-outline-dark mt-1">Back</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

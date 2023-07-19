@@ -1,0 +1,45 @@
+﻿@model MVCTelent.Models.ImageGelleryPic
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<div class="card">
+    <div class="card-body mt-3">
+<h1>Details</h1>
+        <div class="card">
+            <div class="card-body mt-3">
+<div>
+    <h4>ImageGelleryPic</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PicName)
+        </dt>
+        <dd class = "col-sm-10">
+       @*     @Html.DisplayFor(model => model.PicName)*@
+            <img src="~/UserImage/@Model.PicName" height="200px" width="200px" alt="Pic Name" />
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ImageGellery)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ImageGellery.GelleryName)
+        </dd>
+    </dl>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ImageGelleryPicId"
+       class="btn btn-primary mt-1">Edit</a> 
+    <a asp-action="Index" class="btn btn-outline-dark mt-1">Back</a>
+</div>

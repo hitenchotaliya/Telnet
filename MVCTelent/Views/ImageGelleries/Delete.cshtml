@@ -1,0 +1,47 @@
+﻿@model MVCTelent.Models.ImageGellery
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<div class="card">
+    <div class="card-body mt-3">
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+        <div class="card">
+            <div class="card-body mt-3">
+<div>
+    <h4>ImageGellery</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GelleryName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GelleryName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.User)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.User.Email)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ImageGelleryId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> 
+                        <a asp-action="Index" class="btn btn-outline-dark mt-1">Back</a>
+    </form>
+</div>
+</div>
+</div>
+</div>
+</div>

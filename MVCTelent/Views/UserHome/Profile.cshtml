@@ -1,0 +1,264 @@
+﻿@model MVCTelent.Models.Customer
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<body>
+
+<section class="candidates-profile-bg">
+    <div class="bg-overlay"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="candidates-profile-details text-center">
+                        <img src="~/Image/@ViewBag.CustomerImg" class="img-fluid d-block mx-auto rounded-circle img-thumbnail mb-4">
+                        <h4 class="text-white candidates-profile-name mb-2">@ViewBag.CustomerName</h4>
+                  @*  <p class="text-white-50 mb-2"><i class="mdi mdi-bank mr-2"></i>Web Themes.pvt.Ltd</p>*@
+                    <ul class="candidates-profile-icons list-inline mb-3">
+                            <li class="list-inline-item text-white-50 pr-2 f-16"> @ViewBag.CustomerEmail</li>
+                        @*<li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star"></i></a></li>*@
+                    </ul>
+
+                    <ul class="candidates-profile-social-icons list-inline mb-0">
+                        <li class="list-inline-item"><a href="#" class=""><i class="mdi mdi-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class=""><i class="mdi mdi-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class=""><i class="mdi mdi-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class=""><i class="mdi mdi-google-plus"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end home -->
+<!-- CANDIDATES PROFILE START -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="text-dark">About Us</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="job-detail mt-2 p-4">
+                    <div class="job-detail-desc">
+                        <p class="text-muted f-14 mb-3">Aliquam erat volutpat Etiam vitae tortor Morbi vestibulum volutpat enim Aliquam nunc Nunc sed turpis sed mollis eros et ultrices tempus mauris ipsum aliquam libero non adipiscing dolor urna a orci Nulla porta dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra inceptos hymenaeos pellentesque dapibus hendrerit tortor Praesent egestas tristique nibh sed a libero cras us varius donec vitae orci sed dolor rutrum auctor fusce egestas elit eget lorem.</p>
+
+                        <p class="text-muted f-14 mb-0">Libero venenatis faucibus ullam quis ante tiam sit amet orci eget eros faucibus tincidunt ed fringilla mauris sit amet nibh Donec sodales sagittis magna ed consequat leo eget bibendum sodales augue velit cursus nunc quis gravida magna mi libero usce vulputate eleifend sapien estibulum purus qua scelerisque ut mollis sed nonummy id metus ullam accumsan lorem Vivamus elementum semper enean vulputate eleifend tellus enean leo ligula porttitor.</p>
+                    </div>
+                    <hr>
+                    <ul class="list-inline mt-3 mb-0">
+                        <li class="list-inline-item mr-3">
+                                <a href="#" class="text-muted f-15 mb-0"><i class="mdi mdi-map-marker mr-2"></i>@ViewBag.CustomerAddress, @ViewBag.CustomerCity,@ViewBag.CustomerState</a>
+                        </li>
+@*
+                        <li class="list-inline-item mr-3">
+                            <a href="#" class="text-muted f-15 mb-0"><i class="mdi mdi-web mr-2"></i>Www.webthemes.co.in</a>
+                        </li>
+*@
+                        <li class="list-inline-item mr-3">
+                            <a href="#" class="text-muted f-15 mb-0"><i class="mdi mdi-email mr-2"></i>@ViewBag.CustomerEmail</a>
+                        </li>
+
+                        <li class="list-inline-item mr-3">
+                            <a href="#" class="text-muted f-15 mb-0"><i class="mdi mdi-cellphone-iphone mr-2"></i>@ViewBag.CustomerContactNo</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="text-dark mt-4">Overview</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="job-detail mt-2 p-4">
+                    <div class="job-detail-desc">
+                        <p class="text-muted f-14 mb-3">Cras dapibus Vivamus elementum semper nisi Aenean vulputate eleifend tellus Aenean leo ligula porttitor eu consequat vitae eleifend ac enim aliquam lorem ante dapibus in viverra quis feugiat a tellus phasellus viverra nulla ut metus variuse laoreet quisque rutrum aenean imperdiet etiam ultricies nisi that is maecenas tempus tini tellus eget condimentum rhoncus sem semper libero sit amet adipiscing sem neque sed ipsum nam quam nunc blandit vel luctus pulvinar hendrerit lorem maecenas nec odio et ante tincidunt tempus donec vitae libero venenatis faucibus nullam quis ante etiam sit amet orci eget eros faucibus tincidunt Duis leo Sed fringilla a mauris sit amet nibh donec sodales sagittis magna vel augue curabitur ullamcorper ultricies nisi nam eget dui etiame rhoncus ut enim as minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid commodi.</p>
+
+                        <p class="text-muted f-14 mb-0">Sed consequat eget bibendum augue cursus nunc quis gravida magna mi a Itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat liber fusce vulputate eleifend sapien vestibulum purus quam scelerisque ut mollis sed nonummy id metus nullam accumsan lorem in dui cras ultricies mi eu turpis hendrerit fringilla vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia in dui quis consectetuer lacinia nam pretium turpis arcu duis arcu tortor.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="text-dark mt-4 mb-4">Education</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="job-detail candidates-profile-education text-center text-muted mb-5 mt-5">
+                    <div class="profile-education-icon">
+                        <i class="mdi mdi-school"></i>
+                    </div>
+                    <h6 class="text-uppercase f-17"><a href="#" class="text-muted">University Of USA</a></h6>
+                    <p class="f-14 mb-1">May 2016 - April 2017</p>
+                    <p class="f-14 mb-0">Diploma In Management Studies</p>
+                    <hr class="mt-2 mb-2">
+                    <p class="f-14 mb-0">Suspendisse faucibus et pellentesque egestas lacus ante convallis.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="job-detail candidates-profile-education text-center text-muted mb-5 mt-5">
+                    <div class="profile-education-icon">
+                        <i class="mdi mdi-library"></i>
+                    </div>
+                    <h6 class="text-uppercase f-17"><a href="#" class="text-muted">University Of USA</a></h6>
+                    <p class="f-14 mb-1">May 2017 - April 2018</p>
+                    <p class="f-14 mb-0">Diploma In Management</p>
+                    <hr class="mt-2 mb-2">
+                    <p class="f-14 mb-0">Suspendisse faucibus et pellentesque egestas lacus ante convallis.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="job-detail candidates-profile-education text-center text-muted mb-5 mt-5">
+                    <div class="profile-education-icon">
+                        <i class="mdi mdi-briefcase-check"></i>
+                    </div>
+                    <h6 class="text-uppercase f-17"><a href="#" class="text-muted">University Of USA</a></h6>
+                    <p class="f-14 mb-1">May 2018 - April 2019</p>
+                    <p class="f-14 mb-0">Management Of Company</p>
+                    <hr class="mt-2 mb-2">
+                    <p class="f-14 mb-0">Suspendisse faucibus et pellentesque egestas lacus ante convallis.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="text-dark mb-4">Experience</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="job-detail job-list-box mt-4 p-4">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="company-brand-logo text-center mb-4">
+                                
+                                <img src="~/images/featured-job/img-2.png" alt="" class="img-fluid mx-auto d-block">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-9">
+                            <div class="job-list-desc candidates-profile-exp-desc">
+                                <h5 class="f-19 mb-2"><a href="#" class="text-dark">Web Themes Pvt.Ltd</a></h5>
+                                <p class="text-muted mb-0 f-16">PHP Developer</p>
+                                <p class="text-muted mb-0 f-16">Jan 2016 - Dec 2017</p>
+                                <p class="text-muted mb-0 f-16">Salary : $950</p>
+                                <p class="text-muted mb-0 f-16"><i class="mdi mdi-bank mr-2"></i>www.webthemesltd.co.in</p>
+                                <p class="text-muted mb-0 f-16"><i class="mdi mdi-map-marker mr-2"></i>1919 Ward Road West Nyack, NY 10994</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="job-detail job-list-box mt-4 p-4">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="company-brand-logo text-center mb-4">
+                                <img src="~/images/featured-job/img-3.png" alt="" class="img-fluid mx-auto d-block">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-9">
+                            <div class="job-list-desc candidates-profile-exp-desc">
+                                <h5 class="f-19 mb-2"><a href="#" class="text-dark">Web code Pvt.Ltd</a></h5>
+                                <p class="text-muted mb-0 f-16">Web Developer</p>
+                                <p class="text-muted mb-0 f-16">Fab 2015 - July 2018</p>
+                                <p class="text-muted mb-0 f-16">Salary : $1100</p>
+                                <p class="text-muted mb-0 f-16"><i class="mdi mdi-bank mr-2"></i>www.webcodeltd.co.in</p>
+                                <p class="text-muted mb-0 f-16"><i class="mdi mdi-map-marker mr-2"></i>519 Leo Street Butler, PA 16001</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="job-detail job-list-box mt-4 p-4">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="company-brand-logo text-center mb-4">
+                                <img src="~/images/featured-job/img-5.png" alt="" class="img-fluid mx-auto d-block">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-9">
+                            <div class="job-list-desc candidates-profile-exp-desc">
+                                <h5 class="f-19 mb-2"><a href="#" class="text-dark">Brand Themes Pvt.Ltd</a></h5>
+                                <p class="text-muted mb-0 f-16">PHP Developer</p>
+                                <p class="text-muted mb-0 f-16">Jan 2016 - Dec 2017</p>
+                                <p class="text-muted mb-0 f-16">Salary : $1000</p>
+                                <p class="text-muted mb-0 f-16"><i class="mdi mdi-bank mr-2"></i>www.brandthemesltd.co.in</p>
+                                <p class="text-muted mb-0 f-16"><i class="mdi mdi-map-marker mr-2"></i>519 Leo Street Butler, PA 16001</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="job-detail job-list-box mt-4 p-4">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="company-brand-logo text-center mb-4">
+                                <img src="~/images/featured-job/img-7.png" alt="" class="img-fluid mx-auto d-block">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-9">
+                            <div class="job-list-desc candidates-profile-exp-desc">
+                                <h5 class="f-19 mb-2"><a href="#" class="text-dark">Small Themes Pvt.Ltd</a></h5>
+                                <p class="text-muted mb-0 f-16">PHP Developer</p>
+                                <p class="text-muted mb-0 f-16">Jan 2016 - Dec 2017</p>
+                                <p class="text-muted mb-0 f-16">Salary : $900</p>
+                                <p class="text-muted mb-0 f-16"><i class="mdi mdi-bank mr-2"></i>www.smallthemesltd.co.in</p>
+                                <p class="text-muted mb-0 f-16"><i class="mdi mdi-map-marker mr-2"></i>519 Leo Street Butler, PA 16001</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       
+    </div>
+</section>
+   
+    <!-- javascript -->
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/jquery.easing.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+
+    <!-- selectize js -->
+    <script src="~/js/selectize.min.js"></script>
+
+    <script src="~/js/jquery.nice-select.min.js"></script>
+
+    <script src="~/js/app.js"></script>
+
+    </body>
+<!-- CANDIDATES PROFILE END -->

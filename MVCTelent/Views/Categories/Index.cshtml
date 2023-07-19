@@ -1,0 +1,88 @@
+﻿@using ContosoUniversity;
+@using MVCTelent.Models;
+
+
+@model PaginatedList<MVCTelent.Models.Category>
+
+
+@{
+    ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+
+<h1>Index</h1>
+<div class="search-bar">
+	<form class="search-form d-flex align-items-center" asp-controller="Categories" asp-action="Index" method="get">
+		<p>
+			 <input type="text" name="searchString" placeholder="Search" value="@ViewData["CurrentFilter"]" />
+			<button type="submit" value="Filter" class="bi bi-search"></button>
+			<button class="bi bi-x-lg m-lg-1" asp-controller="Categories" asp-action="Index"></button>
+		</p>
+	</form>
+</div>
+<p>
+	<a asp-action="Create" class="btn btn-outline-primary">Create New</a>
+</p>
+
+
+
+
+<div class="row">
+
+	@foreach (var item in Model)
+	{
+		<div class="col-4">
+			<div class="card-group mb-3">
+				<div class="card" style="width:100px">
+					<img class="card-img-top mx-auto" src="~/Image/@item.CatImg" alt="Card image cap" style="width: 370px; height: 300px;">
+					<div class="card-body">
+						<h5 class="card-title text-center">@Html.DisplayFor(modelItem => item.CatName)</h5>
+
+
+
+						<div class="text-center" >
+							@Html.DisplayFor(modelItem => item.Isactive)
+						</div>
+						<div class="mt-1 text-center">
+
+							<a asp-action="Edit" class="btn btn-outline-primary" asp-route-id="@item.CategoryId">Edit</a>
+							<a asp-action="Details" class="btn btn-outline-warning " asp-route-id="@item.CategoryId">Details</a>
+							<a asp-action="Delete" class="btn btn-outline-danger" asp-route-id="@item.CategoryId">Delete</a>
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	}
+</div>
+				@{
+					var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+					var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+				}
+
+				<a asp-action="Index"
+				   asp-route-sortOrder="@ViewData["CurrentSort"]"
+				   asp-route-pageNumber="@(Model.PageIndex - 1)"
+				   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+				   class="btn btn-default @prevDisabled">
+					Previous
+				</a>
+				<a asp-action="Index"
+				   asp-route-sortOrder="@ViewData["CurrentSort"]"
+				   asp-route-pageNumber="@(Model.PageIndex + 1)"
+				   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+				   class="btn btn-default @nextDisabled">
+					Next
+				</a>
+
+		
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.min.js"></script>
+	<script src="js/datatables/datatables.js"></script>
+

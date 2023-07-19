@@ -1,0 +1,38 @@
+﻿@model MVCTelent.Models.Category
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h1>Details of @Html.DisplayFor(model => model.CatName) </h1>
+<div class="col-sm-6">
+    <div class="card">
+        <div class="card-body my-5">
+            <div class="col-12">
+                <img src="~/Image/@Model.CatImg" alt="Your image" class="card-img-top img-fluid" /><br />
+            </div>
+            <div>
+                <dl class="row">
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.CatName)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.CatName)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.Isactive)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Isactive)
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-outline-dark">Back</a>
+    <a asp-action="Edit" class="btn btn-outline-primary" asp-route-id="@Model?.CategoryId">Edit</a>
+</div>
+

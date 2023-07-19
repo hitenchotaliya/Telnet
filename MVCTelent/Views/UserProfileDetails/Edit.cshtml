@@ -1,0 +1,65 @@
+﻿@model MVCTelent.Models.UserProfileDetail
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<div class="card">
+    <div class="card-body mt-3">
+<h1>Edit</h1>
+        <div class="card">
+            <div class="card-body mt-3">
+<h4>UserProfileDetail</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="UserProfileDetailId" />
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                                <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId" readonly></select>
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Education" class="control-label"></label>
+                <img src="~/UserProfileDetails/@Model.Education" height="200px" width="200px" alt="Your image" />
+                <input name="photo" type="file" class="form-control" />
+                <span asp-validation-for="Education" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Certificate" class="control-label"></label>
+                <img src="~/UserProfileDetails/@Model.Certificate" height="200px" width="200px" alt="Your image" />
+                <input name="photo1" type="file" class="form-control" />
+                <span asp-validation-for="Certificate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Experience" class="control-label"></label>
+                <img src="~/UserProfileDetails/@Model.Experience" height="200px" width="200px" alt="Your image" />
+                <input name="photo2" type="file" class="form-control" />
+                <span asp-validation-for="Experience" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+          
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary mt-1" />
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+
+
+<div>
+    <a asp-action="Index" class="btn btn-outline-dark">Back </a>
+</div>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

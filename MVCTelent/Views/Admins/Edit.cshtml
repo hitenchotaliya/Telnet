@@ -1,0 +1,81 @@
+﻿@model MVCTelent.Models.Admin
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Edit</h1>
+<div class="card">
+    <div class="card-body mt-3">
+<h4>Admin</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body ">
+                <h5 class="card-title">Edit</h5>
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="AdminId" />
+                    <div class="col-12">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name"  class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div><br />
+                    <div class="col-12">
+                        <label asp-for="Uname" class="control-label"></label>
+                                <input asp-for="Uname" class="form-control" readonly />
+                        <span asp-validation-for="Uname" class="text-danger"></span>
+                    </div><br />
+                    <div class="col-12">
+                        <label asp-for="Password" class="control-label"></label>
+                                <input asp-for="Password" class="form-control" readonly />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div><br />
+                    <div class="col-12">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+                                   checked>
+                            <label class="form-check-label" for="flexSwitchCheckChecked">Active</label>
+                        </div>
+
+                        <!-- Hidden input to store checkbox value -->
+                        <input type="hidden" id="isActiveInput" name="Isactive" value="true" />
+                        <span asp-validation-for="Isactive" class="text-danger"></span>
+                    </div><br />
+                    <div class="col-12">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div><br />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div>
+    <a asp-action="Index" class="btn btn-outline-dark mt-1">Back </a>
+</div>
+</div>
+</div>
+<script>
+    const checkbox = document.getElementById("flexSwitchCheckChecked");
+    const hiddenInput = document.getElementById("isActiveInput");
+    const isActive = hiddenInput.value.toLowerCase() === "true";
+
+    checkbox.checked = isActive;
+    hiddenInput.value = isActive.toString();
+
+    checkbox.addEventListener("change", function () {
+        hiddenInput.value = checkbox.checked.toString();
+    });
+</script>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

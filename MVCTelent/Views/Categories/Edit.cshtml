@@ -1,0 +1,62 @@
+﻿@model MVCTelent.Models.Category
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<div class="card">
+    <div class="card-body mt-3">
+
+<h1>Edit</h1>
+
+<h4>Category</h4>
+        @section Scripts {
+            @{
+                await Html.RenderPartialAsync("_ValidationScriptsPartial");
+            }
+        }
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body my-5">
+                        <h5 class="card-title">Edit Categories here!</h5>
+                        <form class="row g-3" asp-action="Edit" enctype="multipart/form-data">
+                            <input type="hidden" asp-for="CategoryId" />
+                            <div class="col-12">
+                                <label for="CatName" class="form-label">Category Name</label>
+                                <input asp-for="CatName" type="text" class="form-control" id="CatName" />
+
+                            </div>
+                            <div class="col-6">
+                                <label for="IsAvctive" class="form-label">Status</label>
+                                <select asp-for="Isactive" class="form-select">
+                                    <option value="true">Active</option>
+                                    <option value="false">InActive</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label for="CatImg" class="form-label">Image</label>
+
+                                <input name="photo" type="file" class="form-control" id="CatImg" />
+                            </div>
+                            <div>
+                                <button type="submit" value="Edit" class="btn btn-primary">Submit</button>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body my-5">
+                        <div class="col-12">
+                            <img src="~/Image/@Model.CatImg" alt="Your image" class="card-img-top img-fluid" /><br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <a class="btn btn-outline-dark" asp-action="Index">Back</a>
+        </div>

@@ -1,0 +1,142 @@
+﻿@model MVCTelent.Models.Customer
+@*@model MVCTelent.Models.ProfileViewModel
+*@
+@{
+    ViewData["Title"] = "Create Profile";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+
+<body>
+
+    <section class="create-resume-bg">
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="page-header-title text-center text-white">
+                        <h1 class="">Create Profile</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end home -->
+    <!-- CREATE RESUME START -->
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="text-dark">General Information</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="job-detail mt-2 p-4">
+                       
+
+                        <div class="custom-form">
+                            <form method="post" enctype="multipart/form-data" asp-controller="UserHome" asp-action="CreateProfileGeneralPost" asp-route-id="@Model.CustomerId">
+                                <div class="row" >
+                                    <div class="col-lg-12">
+                                        <div class="resume-user mb-5">
+                                            <i class="mdi mdi-account text-black"> 
+                                                <input asp-for="Img" name="photo" type="file" class="form-control" style="font-size:small"/>
+                                            </i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group app-label">
+                                            <label for="frist-name" class="text-muted">Company Name</label>
+                                            <input asp-for="Name" id="frist-name" type="text" class="form-control resume" placeholder="">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group app-label">
+                                            <label for="date-of-birth" class="text-muted">Incorporation Date</label>
+                                            <input asp-for="CreatedDate" id="date-of-birth" type="date" class="form-control resume">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-6">
+                                        <div class="form-group app-label">
+                                            <label for="phone" class="text-muted">Phone</label>
+                                            <input asp-for="ContactNo" id="phone" type="text" class="form-control resume" placeholder="">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group app-label">
+                                            <label for="e-mail" class="text-muted">E-mail</label>
+                                            <input id="e-mail" type="text" class="form-control resume" placeholder="" value="@Model.Email" readonly>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-6">
+                                        <div class="form-group app-label">
+                                            <label for="citys" class="text-muted">City</label>
+                                            <div class="form-button">
+                                                <select asp-for="City" class="form-group">
+                                                    <option data-display="City">City</option>
+                                                    <option value="Surat">Surat</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group app-label">
+                                            <label for="state" class="text-muted">State</label>
+                                            <div class="form-button">
+                                                <select asp-for="State" class="form-group">
+                                                    <option data-display="State">State</option>
+                                                    <option value="Gujarat">Gujarat</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <div class="form-group app-label">
+                                            <label for="address">Address</label>
+                                            <textarea id="address" rows="4" class="form-control resume" placeholder="" asp-for="Address"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 text-center">
+                                        <div class="form-group">
+                                            <button type="submit" class="submitBnt btn btn-custom mt-5" style="background-color: red; color: white;">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- CREATE RESUME END -->
+    <!-- javascript -->
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/jquery.easing.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+
+    <!-- selectize js -->
+    <script src="~/js/selectize.min.js"></script>
+
+    <script src="~/js/jquery.nice-select.min.js"></script>
+
+    <script src="~/js/app.js"></script>
+
+</body>
